@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>웹툰 페이지</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!--헤더 영역-->
+    <header>
+        <img src="https://dummyimage.com/300x100/000/fff" alt="Header Image">
+    </header>
+    <!--섹션 영역-->
+    <section>
+        <div class="btn-group">
+            <!--7개의 버튼-->
+            <button onclick="changeImages(this)" class="active">월</button>
+            <button onclick="changeImages(this)">화</button>
+            <button onclick="changeImages(this)">수</button>
+            <button onclick="changeImages(this)">목</button>
+            <button onclick="changeImages(this)">금</button>
+            <button onclick="changeImages(this)">토</button>
+            <button onclick="changeImages(this)">일</button>
+        </div>
+        <!--웹툰커버 이미지 영역-->
+        <div id="covers">
+            <!--3개의 웹툰커버 이미지-->
+            <img class="cover" src="https://dummyimage.com/400x300/000/fff&text=웹툰1" alt="웹툰1">
+            <img class="cover" src="https://dummyimage.com/400x300/000/fff&text=웹툰2" alt="웹툰2">
+            <img class="cover" src="https://dummyimage.com/400x300/000/fff&text=웹툰3" alt="웹툰3">
+        </div>
+        <!--완결 버튼-->
+        <button id="complete">완결</button>
+    </section>
+    <script>
+        // 버튼 클릭시 이미지 변경 함수
+        function changeImages(btn) {
+            // 모든 버튼의 active 클래스 제거
+            var buttons = document.querySelectorAll('.btn-group button');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            // 클릭된 버튼에 active 클래스 추가
+            btn.classList.add('active');
+            // 선택된 버튼에 맞는 이미지로 변경
+            var covers = document.querySelectorAll('#covers img');
+            for (var i = 0; i < covers.length; i++) {
+                if (btn.innerText === '월') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰1';
+                    covers[i].alt = '웹툰1';
+                } else if (btn.innerText === '화') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰4';
+                    covers[i].alt = '웹툰4';
+                } else if (btn.innerText === '수') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰7';
+                    covers[i].alt = '웹툰7';
+                } else if (btn.innerText === '목') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰10';
+                    covers[i].alt = '웹툰10';
+                } else if (btn.innerText === '금') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰13';
+                    covers[i].alt = '웹툰13';
+                } else if (btn.innerText === '토') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰16';
+                    covers[i].alt = '웹툰16';
+                } else if (btn.innerText === '일') {
+                    covers[i].src = 'https://dummyimage.com/400x300/000/fff&text=웹툰19';
+                    covers[i].alt = '웹툰19';
+                }
+            }
+        }
+
+        // 완결 버튼 클릭시 알림창 출력 함수
+        function completeAlert() {
+            alert('모든 이야기가 끝났습니다.');
+        }
+
+        // 완결 버튼 클릭 이벤트 등록
+        document.getElementById('complete').addEventListener('click', completeAlert);
+    </script>
+</body>
+
+</html>
